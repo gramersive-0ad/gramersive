@@ -1,0 +1,12 @@
+{
+	"name": "gramersive",
+	"license": "MIT",
+	"devDependencies": {
+		"typescript": "^4.6.3",
+		"copyfiles": "^2.4.1"
+	},
+	"scripts": {
+		"build": "tsc",
+		"postbuild": "copyfiles -u1 \"src/mod.json\" \"src/**/*.xml\" \"dist\""
+	}
+}
