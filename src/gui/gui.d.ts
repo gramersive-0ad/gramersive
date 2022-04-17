@@ -3,28 +3,31 @@
  */
 declare function translate(text: string): string;
 
-/**
- * Type of main menu item
- */
-interface MenuItem
-{
-	"caption": string,
-	"tooltip": string,
-	"submenu"?: MenuItem[],
-	"onPress": () => void
-}
-
-type PageCallback = (data: any) => void;
-
-/**
- * Types of GUIManager part in the Engine object
- */
-declare class GUIManager
+declare namespace GUI
 {
 	/**
-	 * Load a new GUI page and make it active
+	 * Self-defined interface for page callback.
 	 */
-	PushGuiPage(name: string, initData?: any, callback?: PageCallback): void;
+	type PageCallback = (data: any) => void;
+	
+	class GUIManager
+	{
+		/**
+		 * Load a new GUI page and make it active
+		 */
+		PushGuiPage(name: string, initData?: any, callback?: PageCallback): void;
+	}
+
+	/**
+	 * Type of main menu item
+	 */
+	interface MenuItem
+	{
+		"caption": string,
+		"tooltip": string,
+		"submenu"?: MenuItem[],
+		"onPress": () => void
+	}
 }
 
-declare const Engine: GUIManager;
+declare const Engine: GUI.GUIManager;

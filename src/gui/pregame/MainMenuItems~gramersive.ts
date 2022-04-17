@@ -1,4 +1,4 @@
-var g_MainMenuItems: MenuItem[];
+var g_MainMenuItems: GUI.MenuItem[];
 
 g_MainMenuItems.unshift(
 	{
