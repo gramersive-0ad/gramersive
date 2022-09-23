@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objects>
+	<script directory="gui/common/" />
+	<object type="image" sprite="ModernFade" />
+	<object type="image" style="ModernDialog" size="25% 25% 75% 75%">
+		<object style="ModernLabelText" name="dialogTitle" type="text" size="50%-128 -18 50%+128 14">
+			<translatableAttribute id="caption">Gramersive Mod</translatableAttribute>
+		</object>
+		<object type="image" sprite="ModernFade" size="20 20 100%-20 100%-58">
+			<object type="text" style="ModernTextPanel">Soon there will be a list of features, updates, etc.</object>
+		</object>
+		<object type="button" style="ModernButtonRed" size="20 100%-52 50%-3 100%-12">
+			<translatableAttribute id="caption">Github</translatableAttribute>
+			<action on="Press">openURL("https://github.com/gramersive-0ad");</action>
+		</object>
+		<object type="button" style="ModernButtonRed" tooltip_style="snToolTip" size="50%+3 100%-52 100%-20 100%-12" hotkey="cancel">
+			<translatableAttribute id="caption">Close</translatableAttribute>
+			<action on="Press">Engine.PopGuiPage();</action>
+		</object>
+	</object>
+</objects>

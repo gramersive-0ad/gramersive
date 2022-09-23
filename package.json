@@ -1,0 +1,22 @@
+{
+  "name": "gramersive",
+  "license": "MIT",
+  "devDependencies": {
+    "tsc": "^2.0.4",
+    "shx": "^0.3.4",
+    "copyfiles": "^2.4.1",
+    "typescript": "^4.6.3"
+  },
+  "scripts": {
+    "clean": "shx rm -rf \"dist\"",
+    "prebuild-gui": "shx mkdir -p \"dist/gui\"",
+    "build-gui": "tsc -p \"src/gui/tsconfig.json\" --outDir \"dist/gui\"",
+    "postbuild-gui": "copyfiles -u2 \"src/gui/**/*.xml\" \"dist/gui\"",
+    "prebuild-simulation": "shx mkdir -p \"dist/simulation\"",
+    "build-simulation": "tsc -p \"src/simulation/tsconfig.json\" --outDir \"dist/simulation\"",
+    "postbuild-simulation": "copyfiles -u2 \"src/simulation/**/*.xml\" \"dist/simulation\"",
+    "prebuild": "shx mkdir -p \"dist\"",
+    "build": "yarn run build-gui && yarn run build-simulation",
+    "postbuild": "shx cp mod.json \"dist\""
+  }
+}
