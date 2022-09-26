@@ -1,0 +1,14 @@
+{
+  "name": "gramersive",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "latest"
+    }
+  },
+  "workspaceFolder": "/opt/gramersive",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/opt/gramersive,type=bind,consistency=cached",
+  "postCreateCommand": "yarn install --frozen-lockfile",
+  "updateRemoteUserUID": true,
+  "remoteUser": "gramersive"
+}
