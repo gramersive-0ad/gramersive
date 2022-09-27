@@ -35,7 +35,6 @@
 		<GenericName>Ship</GenericName>
 		<Classes datatype="tokens">-Organic</Classes>
 		<VisibleClasses datatype="tokens">Ship</VisibleClasses>
-		<Formations disable="" />
 	</Identity>
 	<Position>
 		<Anchor>upright</Anchor>
@@ -48,6 +47,12 @@
 	</Repairable>
 	<Resistance>
 		<Entity>
+			<ApplyStatus>
+				<Poisoned>
+					<Duration>0.0</Duration>
+					<BlockChance>1</BlockChance>
+				</Poisoned>
+			</ApplyStatus>
 			<Damage>
 				<Hack>5</Hack>
 				<Pierce>10</Pierce>
@@ -69,6 +74,7 @@
 			<select>actor/ship/ship_select_01.xml</select>
 			<order_walk>actor/ship/warship_move_01.xml</order_walk>
 			<order_attack>actor/ship/warship_move_01.xml</order_attack>
+			<order_attack_move>actor/ship/warship_move_01.xml</order_attack_move>
 			<order_gather>actor/ship/warship_move_01.xml</order_gather>
 			<death>actor/ship/warship_death.xml</death>
 		</SoundGroups>
@@ -79,7 +85,12 @@
 		<HeightOffset>6.0</HeightOffset>
 	</StatusBars>
 	<TreasureCollector disable="" />
+	<UnitAI>
+		<Formations disable="" />
+	</UnitAI>
 	<UnitMotion>
 		<PassabilityClass>ship</PassabilityClass>
+		<InstantTurnAngle>0.5</InstantTurnAngle>
+		<Acceleration op="mul">0.15</Acceleration>
 	</UnitMotion>
 </Entity>

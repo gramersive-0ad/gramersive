@@ -3,5 +3,5 @@
   "label": "Massive overhaul of most of the 0ad game mechanics",
   "version": "0.0.1",
   "description": "Adds a lot of realistic things, balancing game mechanics and fixing existing problems",
-  "dependencies": ["0ad=0.0.25"]
+  "dependencies": ["0ad=0.0.26"]
 }

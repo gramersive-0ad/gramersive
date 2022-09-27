@@ -41,8 +41,6 @@
 		<Rank>Basic</Rank>
 		<Classes datatype="tokens">Human FastMoving CitizenSoldier</Classes>
 		<VisibleClasses datatype="tokens">Citizen Soldier Cavalry</VisibleClasses>
-		<Formations datatype="tokens">special/formations/wedge
-</Formations>
 	</Identity>
 	<Loot>
 		<xp>130</xp>
@@ -88,6 +86,7 @@
 		<SoundGroups>
 			<attack_slaughter>attack/weapon/sword_attack.xml</attack_slaughter>
 			<order_attack>voice/{lang}/civ/civ_{phenotype}_attack.xml</order_attack>
+			<order_attack_move>voice/{lang}/civ/civ_{phenotype}_attack.xml</order_attack_move>
 			<order_garrison>voice/{lang}/civ/civ_{phenotype}_garrison.xml</order_garrison>
 			<order_gather>voice/{lang}/civ/civ_{phenotype}_gather.xml</order_gather>
 			<order_walk>voice/{lang}/civ/civ_{phenotype}_walk.xml</order_walk>
@@ -102,11 +101,16 @@
 	<StatusBars>
 		<HeightOffset>7.0</HeightOffset>
 	</StatusBars>
+	<UnitAI>
+		<Formations datatype="tokens">
+      special/formations/wedge
+    </Formations>
+	</UnitAI>
 	<UnitMotion>
 		<WalkSpeed op="mul">2</WalkSpeed>
 		<RunMultiplier>1.4</RunMultiplier>
 	</UnitMotion>
 	<Vision>
-		<Range>92</Range>
+		<Range>80</Range>
 	</Vision>
 </Entity>

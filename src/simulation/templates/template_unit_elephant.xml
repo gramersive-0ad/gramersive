@@ -49,6 +49,7 @@
 			<select>actor/fauna/animal/elephant_select.xml</select>
 			<order_walk>actor/fauna/animal/elephant_order.xml</order_walk>
 			<order_attack>actor/fauna/animal/elephant_attack_order.xml</order_attack>
+			<order_attack_move>actor/fauna/animal/elephant_attack_order.xml</order_attack_move>
 			<order_gather>actor/fauna/animal/elephant_order.xml</order_gather>
 			<order_garrison>actor/fauna/animal/elephant_order.xml</order_garrison>
 			<walk>actor/mounted/movement/walk.xml</walk>
@@ -62,6 +63,8 @@
 	</StatusBars>
 	<UnitMotion>
 		<PassabilityClass>large</PassabilityClass>
+		<Acceleration op="mul">0.5</Acceleration>
+		<Weight op="mul">5.0</Weight>
 	</UnitMotion>
 	<Vision>
 		<Range>100</Range>
