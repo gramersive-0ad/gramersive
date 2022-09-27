@@ -60,7 +60,12 @@ Outlay.prototype.PerformTick = function () {
     return;
   }
 
-  if (cmpPlayer.TrySubtractResources(this.Resources)) {
+  if (!cmpPlayer.GetNeededResources(this.Resources)) {
+    let resourceCount = cmpPlayer.GetResourceCounts();
+    for (let type in this.Resources) {
+      resourceCount[type] -= this.Resources[type];
+    }
+    cmpPlayer.SetResourceCounts(resourceCount);
     return;
   }
 
@@ -75,6 +80,23 @@ Outlay.prototype.PerformTick = function () {
     );
     return;
   }
+
+  let cmpGUIInterface = <Components.GuiInterface>(
+    Engine.QueryInterface(SYSTEM_ENTITY, IID_GuiInterface)
+  );
+  if (!cmpGUIInterface) {
+    error(
+      "Error in entity: " +
+        this.entity +
+        ", IID: IID_Outlay, Function: PerformTick"
+    );
+    return;
+  }
+
+  cmpGUIInterface.PushNotification({
+    players: [cmpPlayer.GetPlayerID()],
+    message: "Unit maintenance is no longer possible due to lack of resources",
+  });
 
   cmpHealth.Kill();
 };
