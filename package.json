@@ -9,6 +9,9 @@
   },
   "scripts": {
     "clean": "shx rm -rf \"dist\"",
+    "prebuild-globalscripts": "shx mkdir -p \"dist/globalscripts\"",
+    "build-globalscripts": "tsc -p \"src/globalscripts/tsconfig.json\" --outDir \"dist/globalscripts\"",
+    "postbuild-globalscripts": "copyfiles -u2 \"src/globalscripts/**/*.xml\" \"dist/globalscripts\"",
     "prebuild-gui": "shx mkdir -p \"dist/gui\"",
     "build-gui": "tsc -p \"src/gui/tsconfig.json\" --outDir \"dist/gui\"",
     "postbuild-gui": "copyfiles -u2 \"src/gui/**/*.xml\" \"dist/gui\"",
@@ -16,7 +19,7 @@
     "build-simulation": "tsc -p \"src/simulation/tsconfig.json\" --outDir \"dist/simulation\"",
     "postbuild-simulation": "copyfiles -u2 \"src/simulation/**/*.xml\" \"dist/simulation\"",
     "prebuild": "shx mkdir -p \"dist\"",
-    "build": "yarn run build-gui && yarn run build-simulation",
+    "build": "yarn run build-globalscripts && yarn run build-gui && yarn run build-simulation",
     "postbuild": "shx cp mod.json \"dist\""
   }
 }

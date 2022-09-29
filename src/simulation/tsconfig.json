@@ -3,5 +3,5 @@
     "target": "ES2018",
     "rootDir": "."
   },
-  "include": ["./", "../pyrogenesis.d.ts", "../globalscripts.d.ts"]
+  "include": ["./", "../gramersive.d.ts"]
 }

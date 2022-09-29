@@ -2,9 +2,9 @@
 <Entity parent="template_unit">
 	<!-- Gramersive components -->
 	<Outlay>
-		<Interval>20.0</Interval>
+		<Interval>20</Interval>
 		<Resources>
-			<food>5</food>
+			<food>10</food>
 		</Resources>
 	</Outlay>
 	<!-- Public components -->

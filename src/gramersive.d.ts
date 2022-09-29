@@ -1,4 +1,31 @@
 /**
+ * Prints to stdout if in debug mode
+ */
+declare function print(...text: string[]): void;
+
+/**
+ * Prints to internal console and to mainlog.html
+ */
+declare function log(text: string): void;
+
+/**
+ * Prints to internal console, mainlog.html and interestinglog.html
+ * Prefixed with "WARNING:"
+ */
+declare function warn(text: string): void;
+
+/**
+ * Prints to internal console, mainlog.html and interestinglog.html
+ * Prefixed with "ERROR:"
+ */
+declare function error(text: string): void;
+
+/**
+ * Format string with specified arguments.
+ */
+declare function sprintf(fmt: string, args: any): string;
+
+/**
  * Public defined globalscripts components.
  */
 declare namespace GlobalScripts {
@@ -64,5 +91,20 @@ declare namespace GlobalScripts {
      * Returns an object mapping resource codes to translatable resource names. Includes subtypes.
      */
     GetNames(): TranslatableResources;
+  }
+
+  interface OutlayTemplateData {
+    interval: number;
+    resources: { [key in ResourceCode]: number };
+  }
+
+  /**
+   * Types of GUIManager part in the Engine object
+   */
+  class GUIManager {
+    /**
+     * Get simulation component template by name.
+     */
+    GetTemplate(templateName: string): any;
   }
 }
