@@ -156,6 +156,11 @@ declare namespace Components {
     [index: string]: number;
   }
 
+  /**
+   * Available player states.
+   */
+  type PlayerState = "active" | "won" | "defeated";
+
   class Player extends Simulation.Component {
     /**
      * Sets the player identifier.
@@ -165,7 +170,7 @@ declare namespace Components {
     /**
      * Returns the player identifier.
      */
-    GetPlayerID(): number;
+    GetPlayerID(): number | undefined;
 
     /**
      * Sets the player name.
@@ -202,6 +207,13 @@ declare namespace Components {
      * Try to subtract the resources and notify if failed.
      */
     TrySubtractResources(amounts: ResourceCounts): boolean;
+
+    /* ... */
+
+    /**
+     * Get current player state.
+     */
+    GetState(): PlayerState;
 
     /* ... */
   }

@@ -21,7 +21,9 @@ declare function headerFont(text: string): string;
 /**
  * Get resource icon identifier.
  */
-declare function resourceIcon(resource: GlobalScripts.ResourceCode | "time"): string;
+declare function resourceIcon(
+  resource: GlobalScripts.ResourceCode | "time"
+): string;
 
 /**
  * Type of main menu item

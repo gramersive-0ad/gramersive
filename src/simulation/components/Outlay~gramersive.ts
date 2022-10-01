@@ -1,5 +1,6 @@
 declare class Outlay extends Simulation.Component {
   public template: any;
+  CancelTimer(): void;
   PerformTick(): void;
 }
 
@@ -47,6 +48,19 @@ Outlay.prototype.Init = function () {
   );
 };
 
+Outlay.prototype.CancelTimer = function () {
+  let cmpTimer = <Components.Timer>(
+    Engine.QueryInterface(SYSTEM_ENTITY, IID_Timer)
+  );
+  if (!cmpTimer) {
+    error(
+      "Error in entity: " + this.entity + ", IID: IID_Outlay, Function: Deinit"
+    );
+    return;
+  }
+  cmpTimer.CancelTimer(this.timer);
+};
+
 Outlay.prototype.PerformTick = function () {
   let cmpPlayer = <Components.Player>(
     QueryOwnerInterface(this.entity, IID_Player)
@@ -57,6 +71,11 @@ Outlay.prototype.PerformTick = function () {
         this.entity +
         ", IID: IID_Outlay, Function: PerformTick"
     );
+    return;
+  }
+
+  if (!cmpPlayer.GetPlayerID() || cmpPlayer.GetState() === "defeated") {
+    this.CancelTimer();
     return;
   }
 
@@ -102,17 +121,7 @@ Outlay.prototype.PerformTick = function () {
 };
 
 Outlay.prototype.Deinit = function () {
-  let cmpTimer = <Components.Timer>(
-    Engine.QueryInterface(SYSTEM_ENTITY, IID_Timer)
-  );
-  if (!cmpTimer) {
-    error(
-      "Error in entity: " + this.entity + ", IID: IID_Outlay, Function: Deinit"
-    );
-    return;
-  }
-
-  cmpTimer.CancelTimer(this.timer);
+  this.CancelTimer();
 };
 
 declare const IID_Outlay: number;

@@ -18,12 +18,14 @@ function getEntityOutlayTooltip(
           ),
         })
       );
-  res.push(sprintf(translate("%(component)s %(outlay)s"), {
-    component: resourceIcon("time"),
-    outlay: template.interval,
-  }))
+  res.push(
+    sprintf(translate("%(component)s %(outlay)s"), {
+      component: resourceIcon("time"),
+      outlay: template.interval,
+    })
+  );
   return sprintf(translate("%(label)s %(outlay)s"), {
     label: headerFont(translate("Outlay:")),
-    outlay: res.join("  ") 
+    outlay: res.join("  "),
   });
 }
